@@ -28,9 +28,22 @@ namespace DI03_2
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("AdventureWorks2016")))
             {
-                string sql = "SELECT ProductId, Size FROM Production.Product " +
+                string sql = "SELECT ProductId, Size, ListPrice FROM Production.Product " +
                     $"WHERE Product.ProductModelID = {productModelID}";
                 return connection.Query<Product>(sql).ToList();
+            }
+        }
+
+        public static int CountModel()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("AdventureWorks2016")))
+            {
+                string sql = "SELECT DISTINCT ProductModel.ProductModelID " +
+                    "FROM Production.ProductModel " +
+                    "JOIN Production.Product ON ProductModel.ProductModelID = Product.ProductModelID " +
+                    "JOIN Production.ProductProductPhoto ON Product.ProductID = ProductProductPhoto.ProductID " +
+                    "JOIN Production.ProductPhoto ON ProductProductPhoto.ProductPhotoID = ProductPhoto.ProductPhotoID";
+                return connection.Query<ProductModel>(sql).Count();
             }
         }
     }

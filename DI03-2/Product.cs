@@ -10,5 +10,6 @@ namespace DI03_2
     {
         public int ProductID { get; set; }
         public string Size { get; set; }
+        public string ListPrice { get; set; }
     }
 }
