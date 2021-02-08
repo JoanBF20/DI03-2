@@ -23,5 +23,15 @@ namespace DI03_2
                 return connection.Query<ProductModel>(sql).FirstOrDefault();
             }
         }
+
+        public static List<Product> GetProducts(int productModelID)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("AdventureWorks2016")))
+            {
+                string sql = "SELECT ProductId, Size FROM Production.Product " +
+                    $"WHERE Product.ProductModelID = {productModelID}";
+                return connection.Query<Product>(sql).ToList();
+            }
+        }
     }
 }

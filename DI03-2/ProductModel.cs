@@ -11,6 +11,7 @@ namespace DI03_2
         public int ProductModelID { get; set; }
         public string Name { get; set; }
         public byte[] LargePhoto { get; set; }
+        public List<Product> Products { get; set; }
     }
 
 }
