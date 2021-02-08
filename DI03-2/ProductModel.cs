@@ -12,4 +12,5 @@ namespace DI03_2
         public string Name { get; set; }
         public byte[] LargePhoto { get; set; }
     }
+
 }
