@@ -12,7 +12,7 @@ namespace DI03_2
     {
         public static ProductModel GetProductModel(int productModelID)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("AdventureWorks2016")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal))
             {
                 string sql = "SELECT DISTINCT ProductModel.ProductModelID, ProductModel.Name, ProductPhoto.LargePhoto " +
                     "FROM Production.ProductModel " +
@@ -26,7 +26,7 @@ namespace DI03_2
 
         public static List<Product> GetProducts(int productModelID)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("AdventureWorks2016")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal))
             {
                 string sql = "SELECT ProductId, Size, ListPrice FROM Production.Product " +
                     $"WHERE Product.ProductModelID = {productModelID}";
@@ -36,7 +36,7 @@ namespace DI03_2
 
         public static int CountModel()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("AdventureWorks2016")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal))
             {
                 string sql = "SELECT DISTINCT ProductModel.ProductModelID " +
                     "FROM Production.ProductModel " +
