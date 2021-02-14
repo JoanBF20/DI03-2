@@ -4,8 +4,11 @@ RandomProductView is a custom control for Windows Forms to show random products 
 
 ### Installation
 > **1.** Right-click on toolbox
+
 > **2.** Select "Choose Items"
+
 > **3.** Browse to your DLL.
+
 > **4.** Add the items
 
 
